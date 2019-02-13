@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SeamButBetter</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading"><img src="logo2.PNG" width="200"></div>
+      <div class="list-group list-group-flush">
+            <a href="index.html" class="list-group-item list-group-item-action bg-light">Start</a>
+            <a href="wstep.html" class="list-group-item list-group-item-action bg-light">Wstęp</a>
+            <a href="wprowadzenie.html" class="list-group-item list-group-item-action bg-light">Wprowadzenie</a>
+            <a href="wzorce.html" class="list-group-item list-group-item-action bg-light">Wzorce</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+      </div>
+    </div>
+
+      <div class="container-fluid">
+        <h1 class="mt-4">Wprowadzenie</h1>
+        <p>SeamButBetter działa poprzez utworzenie na serwerze bazy danych, która przechowuje informacje o powstających konwersacjach oraz dane, jakie do tych konwersacji są przypisywane w trakcie trwania sesji. Każda konwersacja jest rozróżniana poprzez jednoznacznie ją identyfikujący ConversationID. Dodatkowo biblioteka zapewnia bezpieczeństwo konwersacji odbywających się z serwerem poprzez ustawianie time-out na danych przechowywanych w bazie albo umożliwienie ich usunięcia w dowolnym momencie wybranym przez tworzącego stronę, np. po wysłaniu wypełnionego formularza lub po wylogowaniu się użytkownika. Time-out sesji jest dłuższy od time-outów wszystkich konwersacji. </p>
+        <p>W aplikacjach internetowych protokół bezstanowy HTTP określa sposób obsługi żądań użytkowników polegający na usuwaniu tych żądań pomiędzy stronami, nie zwracając uwagi na trwający przypadek użycia. W związku z tym wprowadzono konwersacje, których granice czasu trwania są zbieżne z granicami wybranego przypadku użycia, czyli zdeterminowanej wymiany danych między użytkownikiem a aplikacją.</p>
+        <img src="rys1.PNG">
+        
+        <br><em>Rys.1. Związek pomiędzy pojedynczym żądaniem strony, konwersacją a sesją użytkownika.</em><br><br>
+
+        <p>Każda konwersacja ma swój odrębny cykl życia w ramach sesji. W ten sposób możliwe jest zakończenie konwersacji bez niszczenia całej sesji.</p>
+        <p>Kiedy użytkownik (aktor) zainicjuje pewne działanie wtedy konwersacja się rozpoczyna. Pewien obszar sesji HTTP zostaje wydzielony i przypisany do niej. Równocześnie zostaje wygenerowany i nadany takiemu obszarowi unikatowy identyfikator (ConversationID), który następnie w formie parametru może zostać przekazany do kolejnego żądania. W wyniku przesłania jego i tokenu sesji do serwera konwersacja zostaje przywrócona, czyli powiązana z obsługiwanym żądaniem.</p>
+        <img src="rys2.PNG">
+        
+        <br><em>Rys.2. Sesja wraz z odizolowanymi obszarami będącymi konwersacjami.</em><br><br>
+
+        <p>Konwersacje są zatem bardzo przydatne. Pozostają odizolowane względem siebie przechowując dane, które są potrzebne podczas korzystania z kilku stron. Przykładowo, umożliwiają zapis informacji zanim użytkownik prześle w pełni wypełniony formularz, nawet gdy proces ten wymaga przechodzenia z ekranu na ekran. Wtedy też informacje z poprzednich ekranów są gromadzone i przechowywane tak w bazie danych, aby były dostępne po ukończeniu działania na ostatnim ekranie.</p>
+        <p>Dana biblioteka zapewnia obsługę konwersacji, czyli zarządzanie odizolowanymi segmentami sesji, które będąc identyfikowane przez ConversationID pozwalają na wymianę danych atomicznych z punktu widzenia użytkownika.</p>
+
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</body>
+
+</html>
